@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quikies/address.dart';
 import 'package:quikies/garage.dart';
 import 'package:quikies/garage1.dart';
+import 'package:quikies/Colors/app_colors.dart';
 
 class WashMyCar extends StatefulWidget {
   @override
@@ -31,7 +32,7 @@ class _WashMyCarState extends State<WashMyCar> {
     body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -50,7 +51,7 @@ class _WashMyCarState extends State<WashMyCar> {
                         'Wash My Car',
                         style: TextStyle(
                           fontSize: 24,
-                          color: Color(0xff2A2D37),
+                          color:MyAppColor.headingColor,
                           wordSpacing: 0.3,
                           fontWeight: FontWeight.w700,
                           fontFamily: 'Poppins',
@@ -233,7 +234,7 @@ class _WashMyCarState extends State<WashMyCar> {
                       style: TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xff277FC1),
+                        color:MyAppColor.blueColor,
                       ),
                     ),
                   ],

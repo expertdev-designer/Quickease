@@ -3,6 +3,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:quikies/Colors/app_colors.dart';
 import 'package:quikies/add_vehicle_page.dart';
 import 'package:quikies/wash_my_car.dart';
 
@@ -38,7 +39,7 @@ class Garage extends StatelessWidget {
                 const Text(
                   'My Garage',
                   style: TextStyle(
-                    color: Colors.black,
+                    color:MyAppColor.headingColor,
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -84,7 +85,7 @@ class Garage extends StatelessWidget {
                       Text(
                         '  Add Your Car',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color:MyAppColor.blueColor,
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
                         ),

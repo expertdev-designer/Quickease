@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:quikies/Colors/app_colors.dart';
 import 'package:quikies/bookings.dart';
 import 'package:quikies/my_bookings.dart';
 import 'package:quikies/sign_up.dart';
 import 'package:quikies/my_address.dart';
+import 'package:quikies/widgets/app_buttons.dart';
 
 class PackagePage extends StatefulWidget {
   @override
@@ -50,6 +52,7 @@ class _PackagePageState extends State<PackagePage> {
                 "Package & Add One",
                 style: TextStyle(
                   fontFamily: 'Poppins',
+                  color: MyAppColor.headingColor,
                   fontSize: 24.0,
                   fontWeight: FontWeight.w500,
                 ),
@@ -66,7 +69,7 @@ class _PackagePageState extends State<PackagePage> {
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 16.0,
-                      color: Color(0xff999999),
+                      color: MyAppColor.lightColor,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -100,6 +103,7 @@ class _PackagePageState extends State<PackagePage> {
                               child: Text('Exterior wash',
                                 style: TextStyle(
                                   fontFamily: 'Poppins',
+                                  color:MyAppColor.headingColor,
                                   fontSize: 24.0,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -114,7 +118,7 @@ class _PackagePageState extends State<PackagePage> {
                                   fontFamily: 'Poppins',
                                   fontSize: 12.0,
                                   fontWeight: FontWeight.w400,
-                                  color: Color(0xff999999),
+                                color:  MyAppColor.lightColor,
                                 ),),
                             ),
                             SizedBox(height: 40,),
@@ -129,6 +133,7 @@ class _PackagePageState extends State<PackagePage> {
 
                                       style: TextStyle(
                                         fontFamily: 'Poppins',
+                                        color:MyAppColor.headingColor,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -147,6 +152,7 @@ class _PackagePageState extends State<PackagePage> {
 
                                       style: TextStyle(
                                         fontFamily: 'Poppins',
+                                        color:MyAppColor.headingColor,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -165,6 +171,7 @@ class _PackagePageState extends State<PackagePage> {
 
                                       style: TextStyle(
                                         fontFamily: 'Poppins',
+                                        color:MyAppColor.headingColor,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -183,6 +190,7 @@ class _PackagePageState extends State<PackagePage> {
 
                                       style: TextStyle(
                                         fontFamily: 'Poppins',
+                                        color:MyAppColor.headingColor,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -201,6 +209,7 @@ class _PackagePageState extends State<PackagePage> {
 
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
+                                      color:MyAppColor.headingColor,
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -313,7 +322,7 @@ SizedBox(height: 28,),
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 16.0,
-                        color:Color(0xff2B2F32),
+                        color:MyAppColor.lightBlackColor,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -366,7 +375,7 @@ SizedBox(height: 28,),
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 16.0,
-                        color:Color(0xff2B2F32),
+                        color:MyAppColor.lightBlackColor,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -669,7 +678,7 @@ Container(
   child: Row(
     children: [
 
-      Padding(padding: const EdgeInsets.fromLTRB(8, 0, 17, 0),),
+      Padding(padding: const EdgeInsets.fromLTRB(8, 3, 17, 0),),
 Container(
   child: Column(
     children: [
@@ -677,7 +686,7 @@ Container(
         style: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 16.0,
-          color: Color(0xff277FC1),
+          color: MyAppColor.buttonColor,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -703,45 +712,21 @@ Container(
     ],
   ),
 ),
+Container(height: 10,),
+      SizedBox(width: 110,height: 3,),
+      Container(
 
-      SizedBox(width: 120,),
-      Align(
-        alignment: Alignment.bottomRight,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-          child: SizedBox(
-            width: 140.0,
-            height: 55.0,
-            child: Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(15.0),
-                color: Color(0xff277FC1),
-                border: Border.all(
-                  color: Color(0xff277FC1),
-                  width: 2.0,
-                ),
-              ),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>  My_bookings()),
-                  );
-                },
-                child: const Text(
-                  'Next',
+        margin: EdgeInsets.only(left:3,right: 8,bottom:0,top:10),
 
-                  style: TextStyle(
-                    color: Color(0xffFFFFFF),
-                    fontFamily: 'Poppins',
-                    fontSize: 16.0,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
+        child: AppButtons(textColor: Colors.white, backgroundColor: MyAppColor.buttonColor, borderColor: Colors.black12, text: "Next", width: 145,height:55 , onTap: () {
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Mybookings()),
+          );      // Handle button tap event here
+
+        },),
+
       ),
     ],
   )

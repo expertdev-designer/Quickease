@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:quikies/Colors/app_colors.dart';
 import 'package:quikies/change_password.dart';
 import 'package:quikies/privacy.dart';
 import 'package:quikies/terms.dart';
 import 'package:quikies/login_page.dart';
 import 'package:quikies/wash_my_car.dart';
 import 'package:quikies/widgets/app_large_text.dart';
+import 'package:quikies/widgets/app_buttons.dart';
 
 void main() {
   runApp(const ProfilePage());
@@ -119,35 +121,22 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => LoginPage()),
-                          );
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(Color(0xff277FC1)),
-                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                            const EdgeInsets.symmetric(vertical: 16.0, horizontal: 70.0),
-                          ),
-                          textStyle: MaterialStateProperty.all<TextStyle>(
-                            Theme.of(context).textTheme.labelLarge!.copyWith(fontSize: 18.0),
-                          ),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                          ),
-                        ),
-                        child: AppText(text: "Log Out", color: Color(0xffFFFFFF)),
-                      ),
-                    ),
+                  Container(height: 10,),
+                  Container(
+
+                    margin: EdgeInsets.only(left:68,right: 68,bottom:0,top:10),
+
+                    child: AppButtons(textColor: Colors.white, backgroundColor: MyAppColor.buttonColor, borderColor: Colors.black12, text: "Next", width: 85,height:55 , onTap: () {
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );      // Handle button tap event here
+
+                    },),
+
                   ),
+                  Container(height: 20,),
                   Align(
                     alignment: Alignment.center,
                     child: GestureDetector(
@@ -191,7 +180,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 125.0),
+                  const SizedBox(height: 145.0),
                 ],
               ),
             ),

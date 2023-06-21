@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quikies/Colors/app_colors.dart';
 import 'package:quikies/appointment_page.dart';
 import 'package:quikies/wash_my_car.dart';
 
@@ -45,6 +46,7 @@ class _AddAddressState extends State<AddAddress> {
                   child: Text(
                     'My Address',
                     style: TextStyle(
+                      color: MyAppColor.headingColor,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),

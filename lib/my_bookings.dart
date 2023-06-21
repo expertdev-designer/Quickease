@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:quikies/Colors/app_colors.dart';
 import 'package:quikies/profile.dart';
 
-class My_bookings extends StatefulWidget {
-  const My_bookings({Key? key});
+class Mybookings extends StatefulWidget {
+  const Mybookings({Key? key});
 
   @override
-  _My_bookingsState createState() => _My_bookingsState();
+  _MybookingsState createState() => _MybookingsState();
 }
 
-class _My_bookingsState extends State<My_bookings> {
+class _MybookingsState extends State<Mybookings> {
   bool _isButton1Selected = false;
   bool _isButton2Selected = false;
 
@@ -55,7 +56,8 @@ class _My_bookingsState extends State<My_bookings> {
                         SizedBox(width: 6.0),
                         Text(
                           'Tesla Model S',
-                          style: TextStyle(fontSize: 16.0),
+                          style: TextStyle(fontSize: 16.0,
+                          color: MyAppColor.lightBlackColor),
                         ),
                       ],
                     ),
@@ -66,8 +68,9 @@ class _My_bookingsState extends State<My_bookings> {
                         SizedBox(width: 6.0),
                         Text(
                           'Home',
-                          style: TextStyle(fontSize: 16.0),
-                        ),
+                          style: TextStyle(fontSize: 16.0,
+                              color: MyAppColor.lightBlackColor),),
+
                       ],
                     ),
                     SizedBox(height: 10.0),
@@ -77,7 +80,7 @@ class _My_bookingsState extends State<My_bookings> {
                         SizedBox(width: 6.0),
                         Text(
                           '06-Sep-2022',
-                          style: TextStyle(fontSize: 16.0),
+                          style: TextStyle(fontSize: 16.0, color: MyAppColor.lightBlackColor),
                         ),
                       ],
                     ),
@@ -88,7 +91,7 @@ class _My_bookingsState extends State<My_bookings> {
                         SizedBox(width: 6.0),
                         Text(
                           '1PM - 2PM',
-                          style: TextStyle(fontSize: 16.0, color: Colors.grey),
+                          style: TextStyle(fontSize: 16.0, color: MyAppColor.lightColor),
                         ),
                       ],
                     ),
@@ -141,7 +144,8 @@ class _My_bookingsState extends State<My_bookings> {
                         SizedBox(width: 6.0),
                         Text(
                           'Lamborghini Urus',
-                          style: TextStyle(fontSize: 16.0),
+                          style: TextStyle(fontSize: 16.0,
+                              color: MyAppColor.lightBlackColor),
                         ),
                       ],
                     ),
@@ -152,7 +156,8 @@ class _My_bookingsState extends State<My_bookings> {
                         SizedBox(width: 6.0),
                         Text(
                           'Home',
-                          style: TextStyle(fontSize: 16.0),
+                          style: TextStyle(fontSize: 16.0,
+                              color: MyAppColor.lightBlackColor),
                         ),
                       ],
                     ),
@@ -163,7 +168,8 @@ class _My_bookingsState extends State<My_bookings> {
                         SizedBox(width: 6.0),
                         Text(
                           '02-Sep-2022',
-                          style: TextStyle(fontSize: 16.0),
+                          style: TextStyle(fontSize: 16.0,
+                              color: MyAppColor.lightBlackColor),
                         ),
                       ],
                     ),
@@ -174,7 +180,7 @@ class _My_bookingsState extends State<My_bookings> {
                         SizedBox(width: 6.0),
                         Text(
                           '2PM - 3PM',
-                          style: TextStyle(fontSize: 16.0, color: Colors.black),
+                          style: TextStyle(fontSize: 16.0,  color: MyAppColor.lightBlackColor),
                         ),
                       ],
                     ),
@@ -205,7 +211,7 @@ class _My_bookingsState extends State<My_bookings> {
                 child: Text(
                   'My Bookings',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: MyAppColor.headingColor,
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -363,7 +369,7 @@ class _My_bookingsState extends State<My_bookings> {
 
 void main() {
   runApp(const MaterialApp(
-    home: My_bookings(),
+    home: Mybookings(),
   ));
 }
 //my_bookings.dart

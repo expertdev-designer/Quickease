@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quikies/sign_up.dart';
 import 'package:quikies/my_address.dart';
 import 'package:quikies/package.dart';
+import 'package:quikies/widgets/app_buttons.dart';
 
 class AppointmentPage extends StatelessWidget {
   final List<String> textFieldText = [
@@ -254,10 +255,30 @@ class AppointmentPage extends StatelessWidget {
                     color: Colors.grey,
                   ),
                   SizedBox(height: 8,),
+                  Container(
+
+                    margin: EdgeInsets.only(left:180),
+
+                 child: AppButtons(textColor: Colors.white, backgroundColor: Color(0xff277FC1), borderColor: Colors.black12, text: "Next", width: 45,height:50 , onTap: () {
+
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => PackagePage()),
+                   );      // Handle button tap event here
+
+                 },),
+
+                  ), /*
                   Align(
                     alignment: Alignment.bottomRight,
+
                     child: Padding(
+
                       padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+
+
+
+                     /*
                       child: SizedBox(
                         width: 160.0,
                         height: 45.0,
@@ -289,8 +310,10 @@ class AppointmentPage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      */
                     ),
                   ),
+                  */
                   //add Button
                 ],
 
