@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quikies/wash_my_car.dart';
+import 'package:quikies/widgets/text_field.dart';
 
 void main() {
   runApp(const HomePage());
@@ -71,6 +72,9 @@ class HomePage extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 80.0),
+
+
+
               BottomNavigationBar(
                 items: [
 
@@ -100,6 +104,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
+
             ],
           ),
         ),

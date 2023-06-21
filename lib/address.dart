@@ -1,15 +1,12 @@
-
-
-
-
 import 'package:flutter/material.dart';
-import 'package:quikies/AddVehiclePage.dart';
-import 'package:quikies/wash_my_car.dart';
+import 'package:quikies/sign_up.dart';
+import 'package:quikies/your_address1.dart';
+import 'package:quikies/add_address.dart';
+import 'package:quikies/location.dart';
+import 'package:quikies/map_address.dart';
 
-
-
-class Garage extends StatelessWidget {
-  const Garage({Key? key});
+class Address extends StatelessWidget {
+  const Address({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +20,7 @@ class Garage extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => WashMyCar()),
-                    );
+                    // Handle icon button press
                   },
                   child: const Icon(
                     Icons.arrow_back,
@@ -35,8 +29,8 @@ class Garage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 70.0),
-                const Text(
-                  'My Garage',
+                 Text(
+                  'My Address',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 24.0,
@@ -51,13 +45,13 @@ class Garage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/images/mygarage.png',
+                  'assets/images/map.png',
                   width: 300,
                   height: 300,
                 ),
                 const SizedBox(height: 40.0),
                 const Text(
-                  'There is no car in your garage',
+                  'You haven’t saved any address',
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 16.0,
@@ -66,13 +60,12 @@ class Garage extends StatelessWidget {
                 const SizedBox(height: 05.0),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(
-                          builder: (context) => AddVehiclePage(),
-                        ));
-                    // Handle add car button press
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>LocationPage1()),
+                    ); // Handle arrow button tap
                   },
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
@@ -80,9 +73,9 @@ class Garage extends StatelessWidget {
                         color: Colors.blue,
                         size: 24,
                       ),
-                      SizedBox(height: 05.0),
+                      const SizedBox(width: 05.0),
                       Text(
-                        '  Add Your Car',
+                        'Add Your Address',
                         style: TextStyle(
                           color: Colors.blue,
                           fontSize: 16.0,
@@ -100,7 +93,3 @@ class Garage extends StatelessWidget {
     );
   }
 }
-
-
-
-

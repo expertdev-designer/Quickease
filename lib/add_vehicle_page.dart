@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/My_bookings.dart';
+import 'package:quikies/my_bookings.dart';
 import 'package:quikies/appointment_page.dart';
-import 'package:quikies/Garage1.dart';
+import 'package:quikies/garage1.dart';
 
 
 void main() {

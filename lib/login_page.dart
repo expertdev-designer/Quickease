@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/Sign_Up.dart';
+import 'package:quikies/sign_up.dart';
 import 'package:quikies/forgot_password_page.dart';
 import 'package:quikies/home_screen.dart';
 import 'package:quikies/widgets/app_large_text.dart';

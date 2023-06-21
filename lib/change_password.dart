@@ -9,31 +9,31 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
-  bool _passwordVisible = false;
-  bool _confirmPasswordVisible = false;
+  bool passwordVisible = false;
+  bool confirmPasswordVisible = false;
 
-  TextEditingController _newPasswordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  TextEditingController newPasswordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
-  bool _isPasswordMatch = false;
+  bool isPasswordMatch = false;
 
   @override
   void initState() {
     super.initState();
-    _newPasswordController.addListener(_checkPasswordMatch);
-    _confirmPasswordController.addListener(_checkPasswordMatch);
+    newPasswordController.addListener(_checkPasswordMatch);
+    confirmPasswordController.addListener(_checkPasswordMatch);
   }
 
   @override
   void dispose() {
-    _newPasswordController.dispose();
-    _confirmPasswordController.dispose();
+    newPasswordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
   void _checkPasswordMatch() {
     setState(() {
-      _isPasswordMatch = _newPasswordController.text == _confirmPasswordController.text;
+      isPasswordMatch = newPasswordController.text == confirmPasswordController.text;
     });
   }
 
@@ -84,39 +84,39 @@ class _ChangePasswordState extends State<ChangePassword> {
               ),
               const SizedBox(height: 20.0),
               TextFormField(
-                obscureText: !_passwordVisible,
+                obscureText: !passwordVisible,
                 decoration: InputDecoration(
                   labelText: 'New Password',
                   suffixIcon: GestureDetector(
                     onTap: () {
                       setState(() {
-                        _passwordVisible = !_passwordVisible;
+                        passwordVisible = !passwordVisible;
                       });
                     },
                     child: Icon(
-                      _passwordVisible ? Icons.visibility : Icons.visibility_off,
+                      passwordVisible ? Icons.visibility : Icons.visibility_off,
                     ),
                   ),
                 ),
-                controller: _newPasswordController,
+                controller: newPasswordController,
               ),
               const SizedBox(height: 20.0),
               TextFormField(
-                obscureText: !_confirmPasswordVisible,
+                obscureText: !confirmPasswordVisible,
                 decoration: InputDecoration(
                   labelText: 'Confirm Password',
                   suffixIcon: GestureDetector(
                     onTap: () {
                       setState(() {
-                        _confirmPasswordVisible = !_confirmPasswordVisible;
+                        confirmPasswordVisible = !confirmPasswordVisible;
                       });
                     },
                     child: Icon(
-                      _confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
                     ),
                   ),
                 ),
-                controller: _confirmPasswordController,
+                controller: confirmPasswordController,
               ),
               const SizedBox(height: 40.0),
               Align(
@@ -128,10 +128,10 @@ class _ChangePasswordState extends State<ChangePassword> {
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(15.0),
-                      color: _isPasswordMatch ? Colors.blue : Colors.grey,
+                      color: isPasswordMatch ? Colors.blue : Colors.grey,
                     ),
                     child: TextButton(
-                      onPressed: _isPasswordMatch ? () {
+                      onPressed: isPasswordMatch ? () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => ProfilePage()),

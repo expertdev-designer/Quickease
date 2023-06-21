@@ -64,7 +64,7 @@ class ForgotPasswordPage extends StatelessWidget {
 
 
             ),
-            Align(
+            const Align(
               alignment: Alignment.center,
               child:Text ("recieve password reset link.",
                 style: TextStyle(
@@ -75,10 +75,10 @@ class ForgotPasswordPage extends StatelessWidget {
               ),
 
 
-            ),
+                ),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: TextField(
                 decoration: InputDecoration(
                   labelText: 'Email',
@@ -93,15 +93,15 @@ class ForgotPasswordPage extends StatelessWidget {
 
                 height: 56,
 
-child:Container(
+               child:Container(
 
-  child: ElevatedButton(
+                  child: ElevatedButton(
 
-    onPressed: () {
-      // Handle button tap
-    },
+                    onPressed: () {
+                            // Handle button tap
+                          },
 
-    style: ButtonStyle(
+                   style: ButtonStyle(
 
 
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -110,17 +110,17 @@ child:Container(
         ),
       ),
     ),
-    child:Text ("Send ",
-      style: TextStyle(
+                         child:const Text ("Send ",
+                        style: TextStyle(
 
-        color: Color(0xffFFFFFF),
-        fontSize: 16.0, // Set the desired font size here
-        fontWeight: FontWeight.w500,
+                     color: Color(0xffFFFFFF),
+                      fontSize: 16.0, // Set the desired font size here
+                     fontWeight: FontWeight.w500,
 
-      ),
-    ),
-  ),
-),
+                         ),
+                        ),
+                       ),
+                    ),
 
               ),
             ),

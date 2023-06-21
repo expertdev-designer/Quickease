@@ -139,7 +139,7 @@ class _LocationPage1State extends State<LocationPage1> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => addAddress()),
+                          MaterialPageRoute(builder: (context) => AddAddress()),
                         );
                         // Add signup logic here
                       },
@@ -184,7 +184,7 @@ class _LocationPage1State extends State<LocationPage1> {
         decoration: BoxDecoration(
           color: isSelected ? Colors.blue : color,
           borderRadius: BorderRadius.circular(17.0),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Color(0xffF1F1F1),
               spreadRadius: 2,
@@ -201,10 +201,10 @@ class _LocationPage1State extends State<LocationPage1> {
               size: 22.0,
               color: Colors.black38,
             ),
-            SizedBox(width: 9.0),
+           const SizedBox(width: 9.0),
             Text(
               text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color(0xff2A2D37),
                 fontSize: 12.0,
               ),

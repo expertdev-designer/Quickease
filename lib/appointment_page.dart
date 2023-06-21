@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/Sign_Up.dart';
+import 'package:quikies/sign_up.dart';
 import 'package:quikies/my_address.dart';
 import 'package:quikies/package.dart';
 

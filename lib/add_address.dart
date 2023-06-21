@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:quikies/appointment_page.dart';
 import 'package:quikies/wash_my_car.dart';
 
-class addAddress extends StatefulWidget {
+class AddAddress extends StatefulWidget {
   @override
-  _addAddressState createState() => _addAddressState();
+  _AddAddressState createState() => _AddAddressState();
 }
 
-class _addAddressState extends State<addAddress> {
+class _AddAddressState extends State<AddAddress> {
   bool isCheckboxSelected = false;
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/ChangePassword.dart';
-import 'package:quikies/Privacy.dart';
-import 'package:quikies/Terms.dart';
+import 'package:quikies/change_password.dart';
+import 'package:quikies/privacy.dart';
+import 'package:quikies/terms.dart';
 import 'package:quikies/login_page.dart';
 import 'package:quikies/wash_my_car.dart';
 import 'package:quikies/widgets/app_large_text.dart';

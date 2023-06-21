@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/Address.dart';
-import 'package:quikies/Garage.dart';
-import 'package:quikies/Garage1.dart';
+import 'package:quikies/address.dart';
+import 'package:quikies/garage.dart';
+import 'package:quikies/garage1.dart';
 
 class WashMyCar extends StatefulWidget {
   @override

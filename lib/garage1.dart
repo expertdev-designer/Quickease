@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quikies/package.dart';
-import 'package:quikies/wash_my_car.dart';
 
 class Garage1 extends StatefulWidget {
   @override
@@ -24,8 +23,8 @@ class _Garage1State extends State<Garage1> {
               alignment: Alignment.center,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(top: 45, left: 10),
-                  child: Row(
+                  padding: const EdgeInsets.only(top: 45, left: 10),
+                  child: const Row(
                     children: <Widget>[
                       Positioned(
                         top: 60,
@@ -40,7 +39,7 @@ class _Garage1State extends State<Garage1> {
                     ],
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   top: 50,
                   child: Text(
                     'My Garage',
@@ -53,10 +52,10 @@ class _Garage1State extends State<Garage1> {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 50, right: 10),
+                    padding: const EdgeInsets.only(top: 50, right: 10),
                     child: Icon(
                       isCheckboxSelected ? Icons.delete : Icons.add_circle_outline,
-                      color: Color(0xff277FC1),
+                      color: const Color(0xff277FC1),
                     ),
                   ),
                 ),
@@ -82,7 +81,7 @@ class _Garage1State extends State<Garage1> {
               height: 25,
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 16, right: 16),
+              padding: const EdgeInsets.only(bottom: 16, right: 16),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: SizedBox(
@@ -102,7 +101,7 @@ class _Garage1State extends State<Garage1> {
                         ),
                       ],
                       border: Border.all(
-                        color: Color(0xff277FC1), // Replace "Colors.blue" with your desired border color
+                        color: const Color(0xff277FC1), // Replace "Colors.blue" with your desired border color
                         width: 2.0, // Set desired border width
                       ),
                     ),
@@ -138,7 +137,7 @@ class _Garage1State extends State<Garage1> {
 class ScrollableRowOfBoxes extends StatefulWidget {
   final Function(bool) onCheckboxSelected;
 
-  const ScrollableRowOfBoxes({required this.onCheckboxSelected});
+  const ScrollableRowOfBoxes({super.key, required this.onCheckboxSelected});
 
   @override
   _ScrollableRowOfBoxesState createState() => _ScrollableRowOfBoxesState();
@@ -164,7 +163,7 @@ class _ScrollableRowOfBoxesState extends State<ScrollableRowOfBoxes> {
             });
           },
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         BoxItem(
           image: 'assets/images/car2.png',
           text: '\n Lamborghini Urus \n\n SUV, Yellow \n',
@@ -191,7 +190,7 @@ class BoxItem extends StatelessWidget {
   final bool isChecked;
   final Function(bool) onCheckboxChanged;
 
-  const BoxItem({
+  const BoxItem({super.key,
     required this.image,
     required this.text,
     required this.width,
@@ -209,11 +208,11 @@ class BoxItem extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Color(0xffFFFFFF),
+          color: const Color(0xffFFFFFF),
           border: Border.all(
-            color: Color(0xffFFFFFF),
+            color: const Color(0xffFFFFFF),
             width: 1,
           ),
           borderRadius: BorderRadius.circular(8),
@@ -229,7 +228,7 @@ class BoxItem extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Icon(
                 isChecked ? Icons.check_box : Icons.check_box_outline_blank,
                 color: Colors.blue,
@@ -267,7 +266,7 @@ class BoxItem extends StatelessWidget {
       Color textColor = Colors.black;
 
       if (word.contains('Tesla Model S') || word.contains('Lamborghini Urus')) {
-        textColor = Color(0xff2B2F32);
+        textColor = const Color(0xff2B2F32);
       } else if (word.contains('Sedan') || word.contains('SUV,')) {
         textColor = Colors.grey;
       } else if (word.contains('Red') || word.contains('Yellow')) {
@@ -276,7 +275,7 @@ class BoxItem extends StatelessWidget {
 
       coloredTextSpans.add(
         Text(
-          word + ' ',
+          '$word ',
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 14,
