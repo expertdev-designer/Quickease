@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/sign_up.dart';
-import 'package:quikies/forgot_password_page.dart';
-import 'package:quikies/home_screen.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:quikies/Colors/app_colors.dart';
+import 'package:quikies/login/sign_up.dart';
+import 'package:quikies/login/sign_up.dart';
+import 'package:quikies/Password/forgot_password_page.dart';
+import 'package:quikies/home_screen/home_screen.dart';
+import 'package:quikies/widgets/app_buttons.dart';
 import 'package:quikies/widgets/app_large_text.dart';
+
+
+
+
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -21,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfffCFEAFF),
+      backgroundColor: Color(0xffFFFFFF),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,34 +50,23 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Container(height: 60),
+SizedBox(height: 52,),
             Padding(
               padding: const EdgeInsets.all(16),
-              child: RichText(
-                text: TextSpan(
+              child: Text(
+               'Log In',
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 24,
+                    color: MyAppColor.headingColor,
                     fontWeight: FontWeight.bold,
                   ),
-                  children: [
-                    TextSpan(
-                      text: 'Log ',
-                      style: TextStyle(
-                        color: Color(0xff3D27C1),
-                      ),
-                    ),
-                    TextSpan(
-                      text: 'In',
-                      style: TextStyle(
-                        color: Color(0xff843ADD),
-                      ),
-                    ),
-                  ],
-                ),
+
+
               ),
             ),
+            const SizedBox(height: 10),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -76,27 +74,32 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30.0),
-                      boxShadow: [
+                      boxShadow:  [
                         BoxShadow(
-                          color: Color(0xffCFEAFF),
-                          spreadRadius: -2,
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
+                          color: MyAppColor.white,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
                         ),
                       ],
                     ),
                     child: TextField(
                       keyboardType: TextInputType.emailAddress,
+
                       decoration: InputDecoration(
+
                         labelText: 'Email',
+
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
+
             SizedBox(height: 10),
             Container(height: 20),
+
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -104,9 +107,9 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30.0),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
-                          color: Color(0xffCFEAFF),
+                          color: MyAppColor.white,
                           blurRadius: 5,
                           offset: Offset(0, 3),
                         ),
@@ -120,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                         suffixIcon: GestureDetector(
                           onTap: _togglePasswordVisibility,
                           child: Icon(
-                            _obscureText ? Icons.visibility_off : Icons.visibility,
+                            _obscureText ? Icons.visibility_off_outlined : Icons.visibility,
                             color: Colors.grey,
                           ),
                         ),
@@ -130,7 +133,20 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 1),
+    Align(
+    alignment: Alignment.center,
+    child: Padding(
+        padding: const EdgeInsets.all(25.0),
+          child:AppButtons(textColor: Colors.white,borderColor:MyAppColor.buttonColor ,height:56 ,text:'Login',onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            ); // Handle arrow button tap
+          } ,width:222, backgroundColor: Colors.blueAccent ,)
+    ),
+    )
+          /*
             Align(
               alignment: Alignment.center,
               child: Padding(
@@ -161,7 +177,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Align(
+            */
+            ,Align(
               alignment: Alignment.center,
               child: GestureDetector(
                 onTap: () {
@@ -181,7 +198,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Container(height: 20),
+            Container(height: 40),
             Align(
               alignment: Alignment.center,
               child: AppText(text: "Or continue with ", color: Colors.black38),
@@ -193,17 +210,46 @@ class _LoginPageState extends State<LoginPage> {
               child: Row(
                 children: [
                   SizedBox(width: 85.0),
-                  Image.asset('assets/images/Googlesvg.png'),
+                //  Icon(Icons.g,color: Colors.blue,size:36),
+
+
+                  SvgPicture.asset("assets/images/Google1.svg",  ),
+          SizedBox(width: 50.0),
+                  SvgPicture.asset("assets/images/Facebook1.svg",  ),
+                //  Image.asset('assets/images/g10.png'),
                   SizedBox(width: 50.0),
-                  Image.asset('assets/images/g10.png'),
-                  SizedBox(width: 50.0),
-                  Image.asset('assets/images/white_background.png'),
+                  //Icon(Icons.facebook_outlined,color: Colors.blue,size:36),
+                  SvgPicture.asset("assets/images/white_background.svg",  ),
                 ],
               ),
+                /*
+                const BottomNavigationBarItem(
+                  label: 'Home',
+                  icon: LocalImageViewer(
+                    image: 'assets/nav_icons/home.svg',
+                    color: AppColor.colorWhite,
+                    margin: 2,
+                  ),
+                  activeIcon: LocalImageViewer(
+                    image: 'assets/nav_icons/home.svg',
+                    color: AppColor.colorGreen,
+                    margin: 2,
+                  ),
+                )
+              */
+
             ),
             Container(
               height: 40,
             ),
+            Align(
+              alignment: Alignment.center,
+              child:
+            Container(height: 1,color:Colors.grey,width: 320,),
+
+
+            ),
+            Container(height:15 ,),
             Container(
               child: Column(
                 children: [

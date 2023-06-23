@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/add_address.dart';
-import 'package:quikies/appointment_page.dart';
-import 'package:quikies/wash_my_car.dart';
+import 'package:quikies/Colors/app_colors.dart';
+import 'package:quikies/appointment/appointment_page.dart';
+import 'package:quikies/garage/wash_my_car.dart';
 
-class MyAddress extends StatefulWidget {
+class AddAddress extends StatefulWidget {
   @override
-  _MyAddressState createState() => _MyAddressState();
+  _AddAddressState createState() => _AddAddressState();
 }
 
-class _MyAddressState extends State<MyAddress> {
+class _AddAddressState extends State<AddAddress> {
   bool isCheckboxSelected = false;
-  bool isDeleteIconVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +25,12 @@ class _MyAddressState extends State<MyAddress> {
               alignment: Alignment.center,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(top: 35, left: 10),
+                  padding: EdgeInsets.only(top: 45, left: 10),
                   child: Row(
                     children: <Widget>[
-                      Align(
-                        alignment: Alignment.topLeft,
+                      Positioned(
+                        top: 60,
+                        left: 10,
                         child: Icon(
                           Icons.arrow_back,
                           size: 32,
@@ -42,10 +42,11 @@ class _MyAddressState extends State<MyAddress> {
                   ),
                 ),
                 Positioned(
-                  top: 35,
+                  top: 50,
                   child: Text(
                     'My Address',
                     style: TextStyle(
+                      color: MyAppColor.headingColor,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -54,13 +55,10 @@ class _MyAddressState extends State<MyAddress> {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 35, right: 10),
-                    child: Visibility(
-                      visible: isDeleteIconVisible,
-                      child: Icon(
-                        Icons.delete,
-                        color: Color(0xffEA4335),
-                      ),
+                    padding: EdgeInsets.only(top: 50, right: 10),
+                    child: Icon(
+                      isCheckboxSelected ? Icons.delete : Icons.add_circle_outline,
+                      color: Color(0xff277FC1),
                     ),
                   ),
                 ),
@@ -68,10 +66,9 @@ class _MyAddressState extends State<MyAddress> {
             ),
             Expanded(
               child: ScrollableRowOfBoxes(
-                onCheckboxSelected: (isSelected) {
+                onCheckboxSelected: (selected) {
                   setState(() {
-                    isCheckboxSelected = isSelected;
-                    isDeleteIconVisible = isCheckboxSelected;
+                    isCheckboxSelected = selected;
                   });
                 },
               ),
@@ -79,12 +76,9 @@ class _MyAddressState extends State<MyAddress> {
             Expanded(
               child: Container(),
             ), // Added expanded container to push the save button to the bottom
+
             Container(
-              height: 1,
-              color: Colors.grey.withOpacity(0.4), // Gray color line
-            ),
-            Container(
-              height: 15,
+              height: 25,
             ),
             Padding(
               padding: EdgeInsets.only(bottom: 16, right: 16),
@@ -97,7 +91,15 @@ class _MyAddressState extends State<MyAddress> {
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(15.0),
-                      color: Colors.white,
+                      color: isCheckboxSelected ? Colors.blue : Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white.withOpacity(0.3),
+                          spreadRadius: 2.0,
+                          blurRadius: 5.0,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
                       border: Border.all(
                         color: Color(0xff277FC1), // Replace "Colors.blue" with your desired border color
                         width: 2.0, // Set desired border width
@@ -107,15 +109,14 @@ class _MyAddressState extends State<MyAddress> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AddAddress()),
-
+                          MaterialPageRoute(builder: (context) => AppointmentPage()),
                         );
                         // Add signup logic here
                       },
-                      child: const Text(
+                      child:  Text(
                         'Next',
                         style: TextStyle(
-                          color: Color(0xff277FC1),
+                          color: isCheckboxSelected ? Colors.white : Colors.blue,
                           fontFamily: 'Poppins',
                           fontSize: 16.0,
                         ),
@@ -123,6 +124,7 @@ class _MyAddressState extends State<MyAddress> {
                     ),
                   ),
                 ),
+
               ),
             ),
           ],
@@ -132,10 +134,17 @@ class _MyAddressState extends State<MyAddress> {
   }
 }
 
-class ScrollableRowOfBoxes extends StatelessWidget {
-  final Function(bool isSelected) onCheckboxSelected;
+class ScrollableRowOfBoxes extends StatefulWidget {
+  final Function(bool) onCheckboxSelected;
 
-  ScrollableRowOfBoxes({required this.onCheckboxSelected});
+  const ScrollableRowOfBoxes({required this.onCheckboxSelected});
+
+  @override
+  _ScrollableRowOfBoxesState createState() => _ScrollableRowOfBoxesState();
+}
+
+class _ScrollableRowOfBoxesState extends State<ScrollableRowOfBoxes> {
+  List<bool> isCheckedList = [false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -143,71 +152,83 @@ class ScrollableRowOfBoxes extends StatelessWidget {
       children: <Widget>[
         BoxItem(
           image: 'assets/images/Mask_group.png',
-          text: 'Image 1',
+          text: '\n Home S \n\n 1120 Jerde Camp Apt. 443 \n',
           width: 350,
           height: 80,
-          onCheckboxSelected: onCheckboxSelected,
+          isChecked: isCheckedList[0],
+          onCheckboxChanged: (value) {
+            setState(() {
+              isCheckedList[0] = value;
+              widget.onCheckboxSelected(isCheckedList.contains(true));
+            });
+          },
         ),
         SizedBox(height: 10),
         BoxItem(
           image: 'assets/images/Mask_group.png',
-          text: 'Image 2',
+          text: '\n Office \n\n 1120 Jerde Camp Apt. 443 \n',
           width: 350,
           height: 80,
-          onCheckboxSelected: onCheckboxSelected,
+          isChecked: isCheckedList[1],
+          onCheckboxChanged: (value) {
+            setState(() {
+              isCheckedList[1] = value;
+              widget.onCheckboxSelected(isCheckedList.contains(true));
+            });
+          },
         ),
       ],
     );
   }
 }
 
-class BoxItem extends StatefulWidget {
+class BoxItem extends StatelessWidget {
   final String image;
   final String text;
   final double width;
   final double height;
-  final Function(bool isSelected) onCheckboxSelected;
+  final bool isChecked;
+  final Function(bool) onCheckboxChanged;
 
   const BoxItem({
     required this.image,
     required this.text,
     required this.width,
     required this.height,
-    required this.onCheckboxSelected,
+    required this.isChecked,
+    required this.onCheckboxChanged,
   });
-
-  @override
-  _BoxItemState createState() => _BoxItemState();
-}
-
-class _BoxItemState extends State<BoxItem> {
-  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-          isChecked = !isChecked;
-          widget.onCheckboxSelected(isChecked);
-        });
+        onCheckboxChanged(!isChecked);
       },
       child: Container(
-        width: widget.width,
-        height: widget.height,
+        width: width,
+        height: height,
         margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Color(0xffFFFFFF),
           border: Border.all(
-            color: Colors.grey[400]!,
+            color: Color(0xffFFFFFF),
             width: 1,
           ),
           borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.3),
+              spreadRadius: 2.0,
+              blurRadius: 5.0,
+              offset: const Offset(0, 3),
+            ),
+          ],
         ),
         child: Row(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.all(10.0),
               child: Icon(
                 isChecked ? Icons.check_box : Icons.check_box_outline_blank,
                 color: Colors.blue,
@@ -217,23 +238,60 @@ class _BoxItemState extends State<BoxItem> {
             Expanded(
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  widget.text,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: text
+                      .split('\n')
+                      .map((line) => getColoredText(line))
+                      .toList(),
                 ),
               ),
             ),
             Image.asset(
-              widget.image,
+              image,
               width: 80,
               height: 80,
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget getColoredText(String text) {
+    List<Widget> coloredTextSpans = [];
+    List<String> words = text.split(' ');
+
+    for (String word in words) {
+      Color textColor = Colors.black;
+
+      if (word.contains('Home S') || word.contains('Office')) {
+        textColor = Color(0xff2B2F32);
+      } else if (word.contains('1120') || word.contains('Jerde')) {
+        textColor = Colors.grey;
+      } else if (word.contains('Camp') || word.contains('443')) {
+        textColor = Colors.grey;
+      }
+      else if (word.contains('Apt.')) {
+        textColor = Colors.grey;
+      }
+
+      coloredTextSpans.add(
+        Text(
+          word + ' ',
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: textColor,
+            wordSpacing: 4,
+          ),
+        ),
+      );
+    }
+
+    return Wrap(
+      children: coloredTextSpans,
     );
   }
 }

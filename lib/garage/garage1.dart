@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/Colors/app_colors.dart';
-import 'package:quikies/appointment_page.dart';
-import 'package:quikies/wash_my_car.dart';
+import 'package:quikies/appointment/package.dart';
 
-class AddAddress extends StatefulWidget {
+class Garage1 extends StatefulWidget {
   @override
-  _AddAddressState createState() => _AddAddressState();
+  _Garage1State createState() => _Garage1State();
 }
 
-class _AddAddressState extends State<AddAddress> {
+class _Garage1State extends State<Garage1> {
   bool isCheckboxSelected = false;
 
   @override
@@ -25,8 +23,8 @@ class _AddAddressState extends State<AddAddress> {
               alignment: Alignment.center,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(top: 45, left: 10),
-                  child: Row(
+                  padding: const EdgeInsets.only(top: 45, left: 10),
+                  child: const Row(
                     children: <Widget>[
                       Positioned(
                         top: 60,
@@ -41,12 +39,11 @@ class _AddAddressState extends State<AddAddress> {
                     ],
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   top: 50,
                   child: Text(
-                    'My Address',
+                    'My Garage',
                     style: TextStyle(
-                      color: MyAppColor.headingColor,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -55,10 +52,10 @@ class _AddAddressState extends State<AddAddress> {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 50, right: 10),
+                    padding: const EdgeInsets.only(top: 50, right: 10),
                     child: Icon(
                       isCheckboxSelected ? Icons.delete : Icons.add_circle_outline,
-                      color: Color(0xff277FC1),
+                      color: const Color(0xff277FC1),
                     ),
                   ),
                 ),
@@ -76,12 +73,15 @@ class _AddAddressState extends State<AddAddress> {
             Expanded(
               child: Container(),
             ), // Added expanded container to push the save button to the bottom
-
+            Container(
+              height: 1,
+              color: Colors.grey.withOpacity(0.4), // Gray color line
+            ),
             Container(
               height: 25,
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 16, right: 16),
+              padding: const EdgeInsets.only(bottom: 16, right: 16),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: SizedBox(
@@ -101,7 +101,7 @@ class _AddAddressState extends State<AddAddress> {
                         ),
                       ],
                       border: Border.all(
-                        color: Color(0xff277FC1), // Replace "Colors.blue" with your desired border color
+                        color: const Color(0xff277FC1), // Replace "Colors.blue" with your desired border color
                         width: 2.0, // Set desired border width
                       ),
                     ),
@@ -109,7 +109,7 @@ class _AddAddressState extends State<AddAddress> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AppointmentPage()),
+                          MaterialPageRoute(builder: (context) => PackagePage()),
                         );
                         // Add signup logic here
                       },
@@ -137,7 +137,7 @@ class _AddAddressState extends State<AddAddress> {
 class ScrollableRowOfBoxes extends StatefulWidget {
   final Function(bool) onCheckboxSelected;
 
-  const ScrollableRowOfBoxes({required this.onCheckboxSelected});
+  const ScrollableRowOfBoxes({super.key, required this.onCheckboxSelected});
 
   @override
   _ScrollableRowOfBoxesState createState() => _ScrollableRowOfBoxesState();
@@ -151,8 +151,8 @@ class _ScrollableRowOfBoxesState extends State<ScrollableRowOfBoxes> {
     return ListView(
       children: <Widget>[
         BoxItem(
-          image: 'assets/images/Mask_group.png',
-          text: '\n Home S \n\n 1120 Jerde Camp Apt. 443 \n',
+          image: 'assets/images/car1.png',
+          text: '\n Tesla Model S \n\n Sedan, Red \n',
           width: 350,
           height: 80,
           isChecked: isCheckedList[0],
@@ -163,10 +163,10 @@ class _ScrollableRowOfBoxesState extends State<ScrollableRowOfBoxes> {
             });
           },
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         BoxItem(
-          image: 'assets/images/Mask_group.png',
-          text: '\n Office \n\n 1120 Jerde Camp Apt. 443 \n',
+          image: 'assets/images/car2.png',
+          text: '\n Lamborghini Urus \n\n SUV, Yellow \n',
           width: 350,
           height: 80,
           isChecked: isCheckedList[1],
@@ -190,7 +190,7 @@ class BoxItem extends StatelessWidget {
   final bool isChecked;
   final Function(bool) onCheckboxChanged;
 
-  const BoxItem({
+  const BoxItem({super.key,
     required this.image,
     required this.text,
     required this.width,
@@ -208,11 +208,11 @@ class BoxItem extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Color(0xffFFFFFF),
+          color: const Color(0xffFFFFFF),
           border: Border.all(
-            color: Color(0xffFFFFFF),
+            color: const Color(0xffFFFFFF),
             width: 1,
           ),
           borderRadius: BorderRadius.circular(8),
@@ -228,7 +228,7 @@ class BoxItem extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Icon(
                 isChecked ? Icons.check_box : Icons.check_box_outline_blank,
                 color: Colors.blue,
@@ -265,20 +265,17 @@ class BoxItem extends StatelessWidget {
     for (String word in words) {
       Color textColor = Colors.black;
 
-      if (word.contains('Home S') || word.contains('Office')) {
-        textColor = Color(0xff2B2F32);
-      } else if (word.contains('1120') || word.contains('Jerde')) {
+      if (word.contains('Tesla Model S') || word.contains('Lamborghini Urus')) {
+        textColor = const Color(0xff2B2F32);
+      } else if (word.contains('Sedan') || word.contains('SUV,')) {
         textColor = Colors.grey;
-      } else if (word.contains('Camp') || word.contains('443')) {
-        textColor = Colors.grey;
-      }
-      else if (word.contains('Apt.')) {
+      } else if (word.contains('Red') || word.contains('Yellow')) {
         textColor = Colors.grey;
       }
 
       coloredTextSpans.add(
         Text(
-          word + ' ',
+          '$word ',
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 14,

@@ -1,41 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/login_page.dart';
-import 'package:quikies/main.dart';
-import 'package:quikies/profile.dart';
+import 'package:quikies/Colors/app_colors.dart';
+import 'package:quikies/login/login_page.dart';
 
-class ChangePassword extends StatefulWidget {
+import 'package:quikies/main.dart';
+
+class SignUp extends StatefulWidget {
   @override
-  _ChangePasswordState createState() => _ChangePasswordState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _ChangePasswordState extends State<ChangePassword> {
-  bool passwordVisible = false;
-  bool confirmPasswordVisible = false;
-
-  TextEditingController newPasswordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-
-  bool isPasswordMatch = false;
-
-  @override
-  void initState() {
-    super.initState();
-    newPasswordController.addListener(_checkPasswordMatch);
-    confirmPasswordController.addListener(_checkPasswordMatch);
-  }
-
-  @override
-  void dispose() {
-    newPasswordController.dispose();
-    confirmPasswordController.dispose();
-    super.dispose();
-  }
-
-  void _checkPasswordMatch() {
-    setState(() {
-      isPasswordMatch = newPasswordController.text == confirmPasswordController.text;
-    });
-  }
+class _SignUpState extends State<SignUp> {
+  bool _passwordVisible = false;
+  bool _confirmPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -57,17 +33,13 @@ class _ChangePasswordState extends State<ChangePassword> {
                   },
                   child: Container(
                     margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: Image.asset(
-                      'assets/images/back.png',
-                      width: 24,
-                      height: 24,
-                    ),
+                    child: Icon(Icons.arrow_back,size: 32,color:MyAppColor.buttonColor,),
                   ),
                 ),
               ),
               Container(height: 20),
               const Text(
-                "Change Password",
+                "Sign Up",
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 24.0,
@@ -75,48 +47,56 @@ class _ChangePasswordState extends State<ChangePassword> {
                 ),
               ),
               Container(height: 10),
-              const SizedBox(height: 20.0),
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Name',
+                ),
+              ),
               const SizedBox(height: 20.0),
               TextFormField(
                 decoration: const InputDecoration(
-                  labelText: 'Old Password',
+                  labelText: 'Email',
                 ),
               ),
               const SizedBox(height: 20.0),
               TextFormField(
-                obscureText: !passwordVisible,
+                decoration: const InputDecoration(
+                  labelText: 'Phone',
+                ),
+              ),
+              const SizedBox(height: 20.0),
+              TextFormField(
+                obscureText: !_passwordVisible,
                 decoration: InputDecoration(
-                  labelText: 'New Password',
+                  labelText: 'Password',
                   suffixIcon: GestureDetector(
                     onTap: () {
                       setState(() {
-                        passwordVisible = !passwordVisible;
+                        _passwordVisible = !_passwordVisible;
                       });
                     },
                     child: Icon(
-                      passwordVisible ? Icons.visibility : Icons.visibility_off,
+                      _passwordVisible ? Icons.visibility : Icons.visibility_off,
                     ),
                   ),
                 ),
-                controller: newPasswordController,
               ),
               const SizedBox(height: 20.0),
               TextFormField(
-                obscureText: !confirmPasswordVisible,
+                obscureText: !_confirmPasswordVisible,
                 decoration: InputDecoration(
                   labelText: 'Confirm Password',
                   suffixIcon: GestureDetector(
                     onTap: () {
                       setState(() {
-                        confirmPasswordVisible = !confirmPasswordVisible;
+                        _confirmPasswordVisible = !_confirmPasswordVisible;
                       });
                     },
                     child: Icon(
-                      confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      _confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
                     ),
                   ),
                 ),
-                controller: confirmPasswordController,
               ),
               const SizedBox(height: 40.0),
               Align(
@@ -128,18 +108,14 @@ class _ChangePasswordState extends State<ChangePassword> {
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(15.0),
-                      color: isPasswordMatch ? Colors.blue : Colors.grey,
+                      color: Colors.blue,
                     ),
                     child: TextButton(
-                      onPressed: isPasswordMatch ? () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ProfilePage()),
-                        );
-                        // Add update logic here
-                      } : null,
+                      onPressed: () {
+                        // Add signup logic here
+                      },
                       child: const Text(
-                        'Update',
+                        'Create',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
@@ -150,6 +126,36 @@ class _ChangePasswordState extends State<ChangePassword> {
                 ),
               ),
               const SizedBox(height: 30.0), // Add spacing between TextButton and the row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already have an account? ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Poppins',
+                      fontSize: 16.0,
+                    ),
+                  ),
+                   GestureDetector(
+                    onTap: () {
+                      // Perform the action when the text is clicked
+                      // For example, show a password recovery dialog or navigate to a password recovery screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.none,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

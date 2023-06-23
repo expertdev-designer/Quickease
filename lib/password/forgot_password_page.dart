@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/login_page.dart';
+import 'package:quikies/login/login_page.dart';
 import 'package:quikies/widgets/app_large_text.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
@@ -51,7 +51,7 @@ class ForgotPasswordPage extends StatelessWidget {
 
 
               ),
-            Container(height: 5,),
+            Container(height: 10,),
             Align(
               alignment: Alignment.center,
               child:Text ("Enter your registered email to",
@@ -87,7 +87,7 @@ class ForgotPasswordPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Padding(
-              padding: const EdgeInsets.fromLTRB(60, 16, 12, 80),
+              padding: const EdgeInsets.fromLTRB(71, 16, 12, 80),
               child: SizedBox(
                 width: 222,
 

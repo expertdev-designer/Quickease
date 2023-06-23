@@ -4,8 +4,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:quikies/Colors/app_colors.dart';
-import 'package:quikies/add_vehicle_page.dart';
-import 'package:quikies/wash_my_car.dart';
+import 'package:quikies/vehicle/add_vehicle_page.dart';
+import 'package:quikies/garage/wash_my_car.dart';
 
 
 

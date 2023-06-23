@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/my_bookings.dart';
-import 'package:quikies/appointment_page.dart';
-import 'package:quikies/garage1.dart';
+
+
+import 'package:quikies/garage/garage1.dart';
 
 
 void main() {
@@ -64,7 +64,7 @@ class _ScrollableRowOfBoxesState extends State<ScrollableRowOfBoxes> {
               padding: const EdgeInsets.only(left: 10, right: 10),
               alignment: Alignment.centerLeft,
               child: const Text(
-                'Choose a vehicle type',
+                'Add vehicle ',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

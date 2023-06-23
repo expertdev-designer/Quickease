@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/profile.dart';
-import 'package:quikies/wash_my_car.dart';
+import 'package:quikies/login/profile.dart';
+import 'package:quikies/garage/wash_my_car.dart';
 
 void main() {
   runApp(const BookingPage());

@@ -1,15 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/login_page.dart';
+import 'package:quikies/login/login_page.dart';
 import 'package:quikies/main.dart';
+import 'package:quikies/login/profile.dart';
 
-class SignUp extends StatefulWidget {
+class ChangePassword extends StatefulWidget {
   @override
-  _SignUpState createState() => _SignUpState();
+  _ChangePasswordState createState() => _ChangePasswordState();
 }
 
-class _SignUpState extends State<SignUp> {
-  bool _passwordVisible = false;
-  bool _confirmPasswordVisible = false;
+class _ChangePasswordState extends State<ChangePassword> {
+  bool passwordVisible = false;
+  bool confirmPasswordVisible = false;
+
+  TextEditingController newPasswordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
+  bool isPasswordMatch = false;
+
+  @override
+  void initState() {
+    super.initState();
+    newPasswordController.addListener(_checkPasswordMatch);
+    confirmPasswordController.addListener(_checkPasswordMatch);
+  }
+
+  @override
+  void dispose() {
+    newPasswordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  void _checkPasswordMatch() {
+    setState(() {
+      isPasswordMatch = newPasswordController.text == confirmPasswordController.text;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +57,13 @@ class _SignUpState extends State<SignUp> {
                   },
                   child: Container(
                     margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: Image.asset(
-                      'assets/images/back.png',
-                      width: 24,
-                      height: 24,
-                    ),
+                    child: Icon(Icons.arrow_back,size:33,color: Colors.blue,),
                   ),
                 ),
               ),
               Container(height: 20),
               const Text(
-                "Sign Up",
+                "Change Password",
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 24.0,
@@ -49,56 +71,48 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               Container(height: 10),
+              const SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextFormField(
                 decoration: const InputDecoration(
-                  labelText: 'Name',
+                  labelText: 'Old Password',
                 ),
               ),
               const SizedBox(height: 20.0),
               TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                ),
-              ),
-              const SizedBox(height: 20.0),
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Phone',
-                ),
-              ),
-              const SizedBox(height: 20.0),
-              TextFormField(
-                obscureText: !_passwordVisible,
+                obscureText: !passwordVisible,
                 decoration: InputDecoration(
-                  labelText: 'Password',
+                  labelText: 'New Password',
                   suffixIcon: GestureDetector(
                     onTap: () {
                       setState(() {
-                        _passwordVisible = !_passwordVisible;
+                        passwordVisible = !passwordVisible;
                       });
                     },
                     child: Icon(
-                      _passwordVisible ? Icons.visibility : Icons.visibility_off,
+                      passwordVisible ? Icons.visibility : Icons.visibility_off,
                     ),
                   ),
                 ),
+                controller: newPasswordController,
               ),
               const SizedBox(height: 20.0),
               TextFormField(
-                obscureText: !_confirmPasswordVisible,
+                obscureText: !confirmPasswordVisible,
                 decoration: InputDecoration(
                   labelText: 'Confirm Password',
                   suffixIcon: GestureDetector(
                     onTap: () {
                       setState(() {
-                        _confirmPasswordVisible = !_confirmPasswordVisible;
+                        confirmPasswordVisible = !confirmPasswordVisible;
                       });
                     },
                     child: Icon(
-                      _confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      confirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
                     ),
                   ),
                 ),
+                controller: confirmPasswordController,
               ),
               const SizedBox(height: 40.0),
               Align(
@@ -110,14 +124,18 @@ class _SignUpState extends State<SignUp> {
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
                       borderRadius: BorderRadius.circular(15.0),
-                      color: Colors.blue,
+                      color: isPasswordMatch ? Colors.blue : Colors.grey,
                     ),
                     child: TextButton(
-                      onPressed: () {
-                        // Add signup logic here
-                      },
+                      onPressed: isPasswordMatch ? () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ProfilePage()),
+                        );
+                        // Add update logic here
+                      } : null,
                       child: const Text(
-                        'Create',
+                        'Update',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
@@ -128,36 +146,6 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               const SizedBox(height: 30.0), // Add spacing between TextButton and the row
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already have an account? ',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Poppins',
-                      fontSize: 16.0,
-                    ),
-                  ),
-                   GestureDetector(
-                    onTap: () {
-                      // Perform the action when the text is clicked
-                      // For example, show a password recovery dialog or navigate to a password recovery screen
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      );
-                    },
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        decoration: TextDecoration.none,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
         ),

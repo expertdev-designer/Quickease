@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quikies/Colors/app_colors.dart';
-import 'package:quikies/profile.dart';
+import 'package:quikies/login/profile.dart';
 
 class Mybookings extends StatefulWidget {
   const Mybookings({Key? key});
@@ -300,7 +300,7 @@ class _MybookingsState extends State<Mybookings> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
+        color: Color(0xffFFFFFF),
         child: Container(
           height: 70.0,
           child: Row(

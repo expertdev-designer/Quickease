@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/sign_up.dart';
-import 'package:quikies/add_address.dart';
-import 'package:quikies/profile.dart';
+import 'package:quikies/login/sign_up.dart';
+import 'package:quikies/address/add_address.dart';
+import 'package:quikies/login/profile.dart';
 
 class Terms extends StatelessWidget {
   const Terms({Key? key});

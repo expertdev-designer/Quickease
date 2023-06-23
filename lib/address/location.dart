@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/add_address.dart';
-import 'package:quikies/login_page.dart';
+import 'package:quikies/address/add_address.dart';
+import 'package:quikies/login/login_page.dart';
 import 'package:quikies/main.dart';
-import 'package:quikies/my_address.dart';
+import 'package:quikies/address/my_address.dart';
 
 class LocationPage1 extends StatefulWidget {
   @override

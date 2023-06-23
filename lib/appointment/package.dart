@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quikies/Colors/app_colors.dart';
-import 'package:quikies/bookings.dart';
-import 'package:quikies/my_bookings.dart';
-import 'package:quikies/sign_up.dart';
-import 'package:quikies/my_address.dart';
+import 'package:quikies/bookings/bookings.dart';
+import 'package:quikies/bookings/my_bookings.dart';
+import 'package:quikies/login/sign_up.dart';
+import 'package:quikies/address/my_address.dart';
 import 'package:quikies/widgets/app_buttons.dart';
 
 class PackagePage extends StatefulWidget {

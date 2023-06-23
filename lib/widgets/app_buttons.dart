@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+// ignore: must_be_immutable
 class AppButtons extends StatelessWidget {
   final Color textColor;
   final Color backgroundColor;
@@ -30,6 +31,7 @@ class AppButtons extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
+            fontFamily: 'Poppins',
             color: textColor
           ),
         ),

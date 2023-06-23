@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quikies/Colors/app_colors.dart';
-import 'package:quikies/change_password.dart';
-import 'package:quikies/privacy.dart';
-import 'package:quikies/terms.dart';
-import 'package:quikies/login_page.dart';
-import 'package:quikies/wash_my_car.dart';
+import 'package:quikies/Password/change_password.dart';
+import 'package:quikies/login/login_page.dart';
+import 'package:quikies/terms_and_condition/privacy.dart';
+import 'package:quikies/terms_and_condition/terms.dart';
+import 'package:quikies/login/login_page.dart';
+import 'package:quikies/garage/wash_my_car.dart';
 import 'package:quikies/widgets/app_large_text.dart';
 import 'package:quikies/widgets/app_buttons.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:quikies/login_page.dart';
-import 'package:quikies/splash_screen.dart';
+import 'package:quikies/login/login_page.dart';
+import 'package:quikies/login/splash_screen.dart';
 
 final Color myCustomColor = const Color(0xCFEAFF);
 

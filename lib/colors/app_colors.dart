@@ -7,4 +7,5 @@ class MyAppColor{
   static const lightColor=Color(0xff999999);
   static const blueColor=Color(0xff277FC1);
   static const lightBlackColor=Color(0xff2B2F32);
+  static const white=Color(0xffFFFFFF);
 }

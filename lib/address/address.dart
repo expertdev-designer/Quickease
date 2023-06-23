@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/sign_up.dart';
-import 'package:quikies/your_address1.dart';
-import 'package:quikies/add_address.dart';
-import 'package:quikies/location.dart';
-import 'package:quikies/map_address.dart';
+import 'package:quikies/address/location.dart';
+import 'package:quikies/garage/wash_my_car.dart';
+
 
 class Address extends StatelessWidget {
   const Address({Key? key});
@@ -20,6 +18,10 @@ class Address extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WashMyCar()),
+                    );
                     // Handle icon button press
                   },
                   child: const Icon(

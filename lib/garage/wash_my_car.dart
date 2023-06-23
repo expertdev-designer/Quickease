@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quikies/address.dart';
-import 'package:quikies/garage.dart';
-import 'package:quikies/garage1.dart';
+import 'package:quikies/address/address.dart';
+import 'package:quikies/garage/garage.dart';
+import 'package:quikies/garage/garage1.dart';
 import 'package:quikies/Colors/app_colors.dart';
 
 class WashMyCar extends StatefulWidget {
