@@ -42,7 +42,7 @@ class _MybookingsState extends State<Mybookings> {
                   borderRadius: BorderRadius.circular(10.0),
                   color: Colors.blue,
                 ),
-                child: Image.asset('assets/images/Washing.png'),
+                child: Image.asset('assets/images/washing.png'),
               ),
               const SizedBox(width: 16.0),
               const Expanded(
@@ -130,7 +130,7 @@ class _MybookingsState extends State<Mybookings> {
                   borderRadius: BorderRadius.circular(10.0),
                   color: Colors.white,
                 ),
-                child: Image.asset('assets/images/Washing.png'),
+                child: Image.asset('assets/images/washing.png'),
               ),
               const SizedBox(width: 16.0),
               const Expanded(

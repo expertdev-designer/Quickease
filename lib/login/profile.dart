@@ -195,7 +195,7 @@ class ProfilePage extends StatelessWidget {
 
                   BottomNavigationBarItem(
                     icon: Image.asset(
-                      'assets/images/Frame_1.png',
+                      'assets/images/frame_1.png',
                       width: 50,
                       height: 50,
                     ),
@@ -203,7 +203,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   BottomNavigationBarItem(
                     icon: Image.asset(
-                      'assets/images/Booking.png',
+                      'assets/images/booking.png',
                       width: 50,
                       height: 50,
                     ),
@@ -219,7 +219,7 @@ class ProfilePage extends StatelessWidget {
                         );
                       },
                       child: Image.asset(
-                        'assets/images/Profile.png',
+                        'assets/images/profile.png',
                         color: Colors.blue,
                         width: 30,
                         height: 30,

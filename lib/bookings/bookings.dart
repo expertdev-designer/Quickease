@@ -47,7 +47,7 @@ class BookingPage extends StatelessWidget {
                   ),
                   BottomNavigationBarItem(
                     icon: Image.asset(
-                      'assets/images/Booking.png',
+                      'assets/images/booking.png',
                       width: 50,
                       height: 50,
                     ),
@@ -62,7 +62,7 @@ class BookingPage extends StatelessWidget {
                         );
                       },
                       child: Image.asset(
-                        'assets/images/Profile.png',
+                        'assets/images/profile.png',
                         width: 30,
                         height: 30,
                       ),

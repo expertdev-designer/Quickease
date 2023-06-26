@@ -33,7 +33,7 @@ class ForgotPasswordPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(50, 52, 16, 50),
               child: Image.asset(
-                'assets/images/Rectangle.png',
+                'assets/images/rectangle.png',
 
               ),
             ),

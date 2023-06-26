@@ -151,7 +151,7 @@ class _ScrollableRowOfBoxesState extends State<ScrollableRowOfBoxes> {
     return ListView(
       children: <Widget>[
         BoxItem(
-          image: 'assets/images/Mask_group.png',
+          image: 'assets/images/mask_group.png',
           text: '\n Home S \n\n 1120 Jerde Camp Apt. 443 \n',
           width: 350,
           height: 80,
@@ -165,7 +165,7 @@ class _ScrollableRowOfBoxesState extends State<ScrollableRowOfBoxes> {
         ),
         SizedBox(height: 10),
         BoxItem(
-          image: 'assets/images/Mask_group.png',
+          image: 'assets/images/mask_group.png',
           text: '\n Office \n\n 1120 Jerde Camp Apt. 443 \n',
           width: 350,
           height: 80,

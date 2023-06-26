@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quikies/Colors/app_colors.dart';
+import 'package:quikies/colors/app_images.dart';
 import 'package:quikies/login/sign_up.dart';
 import 'package:quikies/login/sign_up.dart';
 import 'package:quikies/Password/forgot_password_page.dart';
@@ -44,9 +45,8 @@ class _LoginPageState extends State<LoginPage> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Image.asset(
-                  'assets/images/Logo.png', // Replace with your image path
-                  width: 168,
-                  height: 44,
+                 AppImages.logo, // Replace with your image path
+
                 ),
               ),
             ),
@@ -213,9 +213,9 @@ SizedBox(height: 52,),
                 //  Icon(Icons.g,color: Colors.blue,size:36),
 
 
-                  SvgPicture.asset("assets/images/Google1.svg",  ),
+                  SvgPicture.asset("assets/images/google1.svg",  ),
           SizedBox(width: 50.0),
-                  SvgPicture.asset("assets/images/Facebook1.svg",  ),
+                  SvgPicture.asset("assets/images/facebook1.svg",  ),
                 //  Image.asset('assets/images/g10.png'),
                   SizedBox(width: 50.0),
                   //Icon(Icons.facebook_outlined,color: Colors.blue,size:36),

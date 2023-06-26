@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quikies/colors/app_images.dart';
 import 'package:quikies/garage/wash_my_car.dart';
 import 'package:quikies/widgets/app_buttons.dart';
 
@@ -23,7 +24,8 @@ class HomePage extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.fromLTRB(20.0, 100.0, 20.0, 20.0),
                 child: Image.asset(
-                  'assets/images/Logo.png',
+                  AppImages.logo,
+
                   width: 162.77,
                   height: 39.75,
                 ),
@@ -37,7 +39,7 @@ class HomePage extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.all(5.0),
                   child: Image.asset(
-                    'assets/images/Car.png',
+                   AppImages.car,
                     //width: 390,
                     //height: 390,
                   ),
@@ -71,7 +73,7 @@ class HomePage extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(height: 80.0),
+              const SizedBox(height: 100.0),
 
 
 
@@ -80,27 +82,32 @@ class HomePage extends StatelessWidget {
 
                   BottomNavigationBarItem(
                     icon: Image.asset(
-                      'assets/images/home.png',
-                      width: 30,
-                      height: 30,
+                      AppImages.home,
+                      color: Colors.blueAccent,
+                      width: 20,
+                      height: 20,
                     ),
-                    label: '',
+                    label: 'Home',
+
                   ),
                   BottomNavigationBarItem(
                     icon: Image.asset(
-                      'assets/images/Booking.png',
-                      width: 50,
-                      height: 50,
-                    ),
-                    label: '',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Image.asset(
-                      'assets/images/Profile.png',
+
+                      AppImages.bookinicon,
+                      color: Colors.grey,
                       width: 30,
                       height: 30,
                     ),
-                    label: '',
+                    label: 'My Bookings',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image.asset(
+                      AppImages.usericon,
+                      color: Colors.grey,
+                      width: 20,
+                      height: 20,
+                    ),
+                    label: 'Profile',
                   ),
                 ],
               ),

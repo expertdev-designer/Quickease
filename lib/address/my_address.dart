@@ -142,7 +142,7 @@ class ScrollableRowOfBoxes extends StatelessWidget {
     return ListView(
       children: <Widget>[
         BoxItem(
-          image: 'assets/images/Mask_group.png',
+          image: 'assets/images/mask_group.png',
           text: 'Image 1',
           width: 350,
           height: 80,
@@ -150,7 +150,7 @@ class ScrollableRowOfBoxes extends StatelessWidget {
         ),
         SizedBox(height: 10),
         BoxItem(
-          image: 'assets/images/Mask_group.png',
+          image: 'assets/images/mask_group.png',
           text: 'Image 2',
           width: 350,
           height: 80,

@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.white,
       body: Center(
         child: Image.asset(
-          'assets/images/Logo.png', // Replace with your image path
+          'assets/images/logo.png', // Replace with your image path
         ),
       ),
     );
