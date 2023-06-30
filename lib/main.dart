@@ -1,12 +1,15 @@
 import 'dart:async';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:quikies/login/login_page.dart';
 import 'package:quikies/login/splash_screen.dart';
 
 final Color myCustomColor = const Color(0xCFEAFF);
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {

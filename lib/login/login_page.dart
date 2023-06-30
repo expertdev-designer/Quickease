@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quikies/Colors/app_colors.dart';
@@ -6,6 +7,7 @@ import 'package:quikies/login/sign_up.dart';
 import 'package:quikies/login/sign_up.dart';
 import 'package:quikies/Password/forgot_password_page.dart';
 import 'package:quikies/home_screen/home_screen.dart';
+import 'package:quikies/utils/utilities.dart';
 import 'package:quikies/widgets/app_buttons.dart';
 import 'package:quikies/widgets/app_large_text.dart';
 
@@ -21,6 +23,19 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _obscureText = true;
+  bool loading=false;
+  final _formKey=GlobalKey<FormState>();
+  final emailController=TextEditingController();
+  final passwordController=TextEditingController();
+  final _auth=FirebaseAuth.instance;
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    passwordController.dispose();
+    emailController.dispose();
+
+  }
 
   void _togglePasswordVisibility() {
     setState(() {
@@ -28,6 +43,27 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  void login(){
+    setState(() {
+      loading=true;
+    });
+    _auth.signInWithEmailAndPassword(
+        email: emailController.text.toString(),
+        password: passwordController.text.toString()).then((value) {
+      Utils().toastMeassage(value.user!.email.toString());
+      Navigator.push(context,MaterialPageRoute(builder: (context)
+      =>HomePage()));
+      setState(() {
+        loading=false;
+      });
+    }).onError((error, stackTrace){
+      debugPrint(error.toString());
+      Utils().toastMeassage(error.toString());
+      setState(() {
+        loading=false;
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +81,9 @@ class _LoginPageState extends State<LoginPage> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Image.asset(
-                 AppImages.logo, // Replace with your image path
+                 AppImages.logo,
+                  width: 168,
+                  height: 44,// Replace with your image path
 
                 ),
               ),
@@ -65,14 +103,19 @@ SizedBox(height: 52,),
 
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
+                  Container(height: 2,),
+                    Form(
+                      key: _formKey,
+                      child:Column(
+
+                          children: [
+                  /*  decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30.0),
                       boxShadow:  [
                         BoxShadow(
@@ -82,26 +125,28 @@ SizedBox(height: 52,),
                         ),
                       ],
                     ),
-                    child: TextField(
-                      keyboardType: TextInputType.emailAddress,
+                    */
 
-                      decoration: InputDecoration(
+                            TextField(
+                              keyboardType: TextInputType.text,
+                              controller: emailController,
+                              decoration: InputDecoration(
+                                labelText: 'Email',
+                                contentPadding: EdgeInsets.only(bottom: 8.0), // Adjust the value as needed
+                              ),
+                            ),
 
-                        labelText: 'Email',
 
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
 
-            SizedBox(height: 10),
-            Container(height: 20),
+
+
+
+                            // SizedBox(height: 10),
+            Container(height: 35),
 
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal:3),
               child: Column(
                 children: [
                   Container(
@@ -115,11 +160,14 @@ SizedBox(height: 52,),
                         ),
                       ],
                     ),
+
                     child: TextField(
+                      controller: passwordController,
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: _obscureText,
                       decoration: InputDecoration(
                         labelText: 'Password',
+                        contentPadding: EdgeInsets.only(bottom: 8.0),
                         suffixIcon: GestureDetector(
                           onTap: _togglePasswordVisibility,
                           child: Icon(
@@ -128,21 +176,29 @@ SizedBox(height: 52,),
                           ),
                         ),
                       ),
+
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 1),
+                          ],
+            ),
+
+
+        ),
+      ],
+              ),
+            ),
+
     Align(
     alignment: Alignment.center,
     child: Padding(
         padding: const EdgeInsets.all(25.0),
           child:AppButtons(textColor: Colors.white,borderColor:MyAppColor.buttonColor ,height:56 ,text:'Login',onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            ); // Handle arrow button tap
+            if(_formKey.currentState!.validate()){
+              login();
+            }// Handle arrow button tap
           } ,width:222, backgroundColor: Colors.blueAccent ,)
     ),
     )
@@ -192,7 +248,7 @@ SizedBox(height: 52,),
                 child: Text(
                   'Forgot Password?',
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: Color(0xff2A2D37),
                     decoration: TextDecoration.none,
                   ),
                 ),
@@ -240,7 +296,7 @@ SizedBox(height: 52,),
 
             ),
             Container(
-              height: 40,
+              height: 50,
             ),
             Align(
               alignment: Alignment.center,
@@ -249,7 +305,7 @@ SizedBox(height: 52,),
 
 
             ),
-            Container(height:15 ,),
+            Container(height:20 ,),
             Container(
               child: Column(
                 children: [
@@ -281,7 +337,7 @@ SizedBox(height: 52,),
                 ],
               ),
             ),
-          ],
+            ],
         ),
       ),
     );

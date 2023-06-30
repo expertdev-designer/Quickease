@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "20445543011",
+    "project_id": "quickease-bdcd5",
+    "storage_bucket": "quickease-bdcd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20445543011:android:f327974cd4621270561656",
+        "android_client_info": {
+          "package_name": "com.example.quikies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20445543011-4vulestef4irc5bq4uhlovmg30r1fu44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSRyJ1sGL14D5YDPe_-uN3IyhTBpdD5k4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20445543011-4vulestef4irc5bq4uhlovmg30r1fu44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

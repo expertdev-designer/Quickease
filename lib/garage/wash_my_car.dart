@@ -3,6 +3,7 @@ import 'package:quikies/address/address.dart';
 import 'package:quikies/garage/garage.dart';
 import 'package:quikies/garage/garage1.dart';
 import 'package:quikies/Colors/app_colors.dart';
+import 'package:quikies/vehicle/add_vehicle_page.dart';
 
 class WashMyCar extends StatefulWidget {
   @override
@@ -166,7 +167,7 @@ class _WashMyCarState extends State<WashMyCar> {
                                   onTap: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => Garage1()),
+                                      MaterialPageRoute(builder: (context) => AddVehiclePage()),
                                     ); // Handle arrow button tap
                                   },
 

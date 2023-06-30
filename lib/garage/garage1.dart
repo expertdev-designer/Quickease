@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:quikies/appointment/package.dart';
 
@@ -8,6 +9,7 @@ class Garage1 extends StatefulWidget {
 
 class _Garage1State extends State<Garage1> {
   bool isCheckboxSelected = false;
+  final ref=FirebaseDatabase.instance.ref('Add Vehicle');
 
   @override
   Widget build(BuildContext context) {
